@@ -1,6 +1,8 @@
 package com.proj.batchtutorial.core.domain.accounts;
 
+import com.proj.batchtutorial.core.domain.orders.Orders;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -23,6 +25,7 @@ import java.util.Date;
 @Getter
 @ToString
 @Entity
+@NoArgsConstructor
 public class Accounts {
 
     @Id
@@ -33,4 +36,11 @@ public class Accounts {
     private Date orderDate;
     private Date accountDate;
 
+    public Accounts(Orders orders) {
+        this.id = orders.getId();
+        this.orderItem = orders.getOrderItem();
+        this.price = orders.getPrice();
+        this.orderDate = orders.getOrderDate();
+        this.accountDate = new Date();
+    }
 }
