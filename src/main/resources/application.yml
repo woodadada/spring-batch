@@ -1,4 +1,14 @@
+# default
 spring:
+  profiles:
+    active: local
+
+---
+# mysql 환경도 local로 설정 default가 local이기 때문에 아무런 옵션이 없다면 해당 설정이 세팅
+spring:
+  config:
+    activate:
+      on-profile: local # default가 로컬로 설정
   batch:
     job:
       names: ${job.name:NONE}
@@ -11,3 +21,12 @@ spring:
     password: password1234
   jpa:
     show-sql: true
+
+---
+# test 환경은 h2 가동 (test 옵션 추가 필요)
+spring:
+  config:
+    activate:
+      on-profile: test
+  jpa:
+    database: h2
