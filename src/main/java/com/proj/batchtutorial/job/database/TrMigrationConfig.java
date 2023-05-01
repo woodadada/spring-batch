@@ -91,6 +91,18 @@ public class TrMigrationConfig {
                 .build();
     }
 
+    // itemWriter 구현 직접 repository save 구현 필요
+    @Bean
+    @StepScope
+    public ItemWriter<Accounts> trOrderNormalWriter() {
+        return new ItemWriter<Accounts>() {
+            @Override
+            public void write(List<? extends Accounts> items) throws Exception {
+                items.forEach(item -> accountsRepository.save(item));
+            }
+        };
+    }
+
 
     @Bean
     @StepScope
