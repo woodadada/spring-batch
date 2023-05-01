@@ -12,6 +12,7 @@ spring:
   batch:
     job:
       names: ${job.name:NONE}
+      enabled: false #프로젝트 실행 시 파라미터가 존재하더라도 해당 job이 실행되지 않는다.
     jdbc:
       initialize-schema: always
   datasource:
