@@ -1,6 +1,8 @@
 package com.proj.batchtutorial.core.domain.orders;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -23,6 +25,8 @@ import java.util.Date;
 @Getter
 @ToString
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Orders {
 
     @Id
